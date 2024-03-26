@@ -1,0 +1,290 @@
+:root {
+    /* Lesson 3 color palette generated using coolors.co and SproutAndGrow-500px.png as the input image */
+    /* NOTE: using the values as css variables since that's the format coolors.co exported them in, and it keeps the colors easier to understand */
+
+    /* --black-olive: #312C1Fff;
+    --lion: #BF955Bff;
+    --dark-moss-green: #3A4D0Bff;
+    --rich-black: #171C25ff;
+    --smoky-black: #16140Cff;
+    --coyote: #75663Fff;
+    --raw-umber: #A0683Aff;
+    --buff: #E4B388ff;
+    --fern-green: #617038ff;
+    --dark-green: #172503ff; */
+
+    /* Lesson 4 - new color palette */
+    /* from https://coolors.co/386641-6a994e-a7c957-f2e8cf-bc4749 */
+    --hunter-green: #386641ff;
+    --asparagus: #6a994eff;
+    --yellow-green: #a7c957ff;
+    --parchment: #f2e8cfff;
+    --bittersweet-shimmer: #bc4749ff;
+    --dark-green: #172503ff;
+}
+
+/* GLOBAL STYLES
+--------------------------------------*/
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--yellow-green);
+    font-family: 'Times New Roman', Times, serif;
+}
+/* 
+  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*/
+/* html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+} */
+
+.content-wrapper {
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 900px;
+}
+/* on smaller screens, remove the vertical padding since it causes too much space between sections, 
+   but keep the horizontal padding since we don't want the content right up to the edge. */
+@media screen and (max-width: 600px) {
+    .content-wrapper {
+        padding: 0px 10px;
+    }
+    
+}
+
+/* links */
+a {
+    color: var(--asparagus);
+}
+
+a:hover {
+    color: var(--bittersweet-shimmer);
+    text-decoration: none; /* remove underline when hovered */
+}
+
+.btn {
+    background-color: var(--dark-green);
+    color: var(--yellow-green);
+    text-decoration: none;
+}
+
+/* Resume page styles
+--------------------------------------*/
+
+/* .resume {
+    background-image: url(../images/pexels-fauxels-3183152.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+/* .resume body {
+    background-color: rgb(255 255 255 / 0.9);
+} */
+
+/* HEADER
+--------------------------------------*/
+
+.resume header::before {
+    /* background: url(../images/SproutAndGrow-500px.png) center no-repeat; */
+    background: url(../images/pexels-fauxels-3183152.jpg) no-repeat;
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 375px;
+}
+
+/* make the header image take less vertical space on smaller screens */
+@media screen and (max-width: 600px) {
+    .resume header::before {
+        height: 200px;
+    }
+    /* NOTE: don't need to change the sizes of the h1 and h2 since the text still fits at 360px width */
+}
+
+.resume {
+    display: flex;
+    flex-direction: column;
+}
+
+.resume .non-footer-content {
+    flex: 1 0 auto;
+}
+
+.resume-section {
+    margin-bottom: 50px;
+}
+/* reduce margin-bottom so there's not so much empty space on smaller screens */
+@media screen and (max-width: 600px) {
+    .resume-section {
+        margin-bottom: 10px;
+    }
+}
+.resume-section h2 {
+    border-bottom: 2px dashed var(--asparagus);
+}
+@media screen and (max-width: 600px) {
+    /* the default styles for h2 include too much vertical margin for smaller screens */
+    /* just keep the top margin for space between sections but no need for the bottom margin */
+    .resume-section h2 {
+        margin: 10px 0px 0px 0px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-green);
+    /* Poppins font from google web fonts */
+    font-family: Poppins, sans-serif;
+    /* use the font-effect-3d class from google web fonts instead of text-shadow */
+    /* text-shadow: 4px 4px 4px #aaa; */
+}
+/* on small screens we want to reduce the margin amount on the header elements from its browser default of 1em */
+@media screen and (max-width: 600px) {
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0.25em 0;
+    }
+}
+.download-link {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+
+/* Projects
+--------------------------------------*/
+/* .project-item {
+    display: flow-root;
+    margin: 30px 0;
+}
+
+.project-item img {
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+} */
+
+/* change project section to use a grid like work experience */
+/* NOTE: by using a grid at all sizes, we avoid having to introduce a media query to change away from float
+   and switch to a grid like the CSS Essentials tutorial did.  This was a better choice in our situation
+   because we have a small enough amount of text for the one project entry that float doesn't have any value
+   because it doesn't need to wrap around the image. If our project text was longer, float would be a better 
+   choice at larger displays and we would switch to grid at a smaller size (like 860px from the exercise). */
+.project-item {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 20px;
+}
+
+.project-item .project-thumbnail img {
+    width: 300px;
+}
+
+/* below 600px, switch to a single column layout */
+@media screen and (max-width: 600px) {
+    .project-item {
+        grid-template-columns: 1fr;
+    }
+
+    /* also need to change the thumbnail width to be 100% of the column instead of fixed width */
+    .project-item .project-thumbnail img {
+        width: 100%;
+    }
+}
+
+
+/* Work Experience
+--------------------------------------*/
+.work-item {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 20px;
+}
+
+/* below 600px, switch to a single column layout */
+@media screen and (max-width: 600px) {
+    .work-item {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Education
+--------------------------------------*/
+/* have education use a similar grid layout to work experience */
+.education-item {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 20px;
+}
+
+/* make the first paragraph in the education summary bold */
+.education-summary p:first-child {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    .education-item {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FOOTER
+--------------------------------------*/
+footer {
+    color: var(--yellow-green);
+    background-color: var(--dark-green);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+footer h2 {
+    /* need to override the h2 color from the global styles */
+    color: var(--yellow-green);
+}
+
+footer img {
+    max-width: 64px;
+}
+
+.socials {
+    list-style-type: none;
+    padding: 0;
+}
+
+.socials li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.socials img {
+    width: 32px;
+}
+.socials img:hover {
+    /* filter: brightness(1.5); */
+    opacity: 0.5;
+}
+/* below 500px the socials started wrapping to a new line, so we'll change them to a single column
+   by switching the flex-direction to column */
+@media screen and (max-width: 500px) {
+    footer {
+        flex-direction: column;
+        /* center align the content of the footer since we're a single column here instead of leaving them left-aligned */
+        text-align: center;
+    }
+    /* as a single column there's too much vertical space between the text and icons, so reduce it */
+    footer h2 {
+        margin: 10px 0px 0px 0px;
+    }
+    .socials {
+        margin: 0;
+    }
+}

@@ -1,0 +1,4 @@
+- facebook icon from https://about.meta.com/brand/resources/facebook/logo/
+- twitter icon from https://about.twitter.com/en/who-we-are/brand-toolkit.html
+- linkedin icon from https://brand.linkedin.com/downloads
+- GitHub icon from https://github.com/logos

@@ -1,0 +1,15 @@
+* pexels-fauxels-3183152.jpg from https://www.pexels.com/photo/photo-of-person-using-computer-3183152/
+
+Sites mentioned in the lesson:
+
+* unsplash
+* iconfinder
+* lorem picsum
+  - https://picsum.photos/200/300 (width and height)
+  - https://picsum.photos/200 (same number for width and height)
+  - https://picsum.photos/id/237/200/300 (width and height, specific photo id)
+  - https://picsum.photos/seed/someseed/200/300 (width and height, random photo, but same based on seed)
+
+  thumbnails:
+  - 300px wide (larger screen)
+  - 500px wide (smaller screen)
