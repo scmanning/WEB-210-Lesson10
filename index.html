@@ -1,164 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarah Manning | Portfolio</title>
-    <!-- adding use of 3d font effect per https://developers.google.com/fonts/docs/getting_started#enabling_font_effects_beta -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Poppins&effect=shadow-multiple"
-    >
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/navmenu.css">
-  </head>
-  <body class="portfolio">
-    <div class="non-footer-content">
-      <!-- ***********************  NAV MENU BAR  *********************** -->
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-      <!-- ***********************  ABOUT / PROFILE  *********************** -->
-      <header>
-        <div class="content-wrapper">
-          <h1>Sarah Manning</h1>
-          <h2 class="font-effect-shadow-multiple">Freelance Graphic Designer</h2>
 
-          <p>
-            I am a young, up-and-coming graphic artist and designer looking for
-            exciting and innovative opportunities to expand my experience and
-            connect with other creative people and teams.
-          </p>
-        </div>
-      </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarah Manning | Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&effect=shadow-multiple">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 
-      <main class="content-wrapper">
-        <!-- ********************  PROJECTS / PORTFOLIO  ********************* -->
-        <section class="portfolio-section">
-          <h2 class="font-effect-shadow-multiple">Featured Projects</h2>
-          <p>
-            View selected projects below. More information can be found at
-            <a href="https://github.com/scmanning">my GitHub page</a>.
-          </p>
-
-          <!-- Copy the whole <section> block to add more projects. -->
-          <section class="project-item">
-            <div class="project-thumbnail">
-              <img
-                src="images/SproutAndGrow-500px.png"
-                srcset="images/SproutAndGrow-1000px.png 2x"
-                alt="Sprout and Grow website screenshot"
-              >
-            </div>
-            <div class="project-summary">
-              <h3>Sprout &amp; Grow</h3>
-              <p>
-                As a project within the WEB-140 course, I created a website for
-                a fictional greenhouse company named Sprout &amp; Grow.
-              </p>
-              <a
-                class="btn"
-                href="https://wcet.waketech.edu/scmanning/WEB140/Project/index.html"
-                target="_blank"
-                >View project website</a
-              >
-            </div>
-          </section>
-          <!-- End of Project block. -->
-        </section>
-
-        <!-- ***********************  WORK EXPERIENCE  *********************** -->
-        <section class="portfolio-section">
-          <h2 class="font-effect-shadow-multiple">Work Experience</h2>
-          <!-- <p>Optional paragraph for work experience summary. Not a part of the job details. Delete if not being used.</p> -->
-
-          <!-- Copy this whole <section> block to add more jobs. -->
-          <section class="work-item">
-            <div class="work-details">
-              <h3>Graphic Artist and Social Media Manager</h3>
-              <p>Sublogic, Inc.</p>
-              <p>Summer 2023</p>
-            </div>
-            <div class="work-summary">
-              <p>
-                Spent the summer as an intern for a technology consulting firm.
-              </p>
-              <p>List of responsibilities:</p>
-              <ul>
-                <li>Managed social media accounts for the firm.</li>
-                <li>Created graphic art pieces for marketing material</li>
-                <li>Created web pages for marketing site</li>
-                <li>Created and managed WordPress site</li>
-                <li>Managed company social media accounts for the firm</li>
-                <li>Responsible for primary customer interactions</li>
-              </ul>
-            </div>
-          </section>
-          <!-- End of Job block. -->
-        </section>
-
-        <!-- ******************  EDUCATION & CERTIFICATIONS ****************** -->
-        <section class="portfolio-section">
-          <h2 class="font-effect-shadow-multiple">Education</h2>
-
-          <!-- Copy this whole <section> block to add more schools. -->
-          <section class="education-item">
-            <div class="education-details">
-              <h3>
-                <a href="https://www.waketech.edu/"
-                  >Wake Technical Community College</a
-                >
-              </h3>
-              <h3>Raleigh, NC</h3>
-            </div>
-
-            <div class="education-summary">
-              <p>Associate in Applied Science - Spring 2025 (expected)</p>
-              <p>
-                On track to complete my
-                <a
-                  href="https://www.waketech.edu/programs-courses/credit/advertising-and-graphic-design/degrees-programs/a30100"
-                  >Advertising & Graphic Design AAS</a
-                >
-                degree.
-              </p>
-              <ul>
-                <li>Dean's List - Fall 2023</li>
-              </ul>
-            </div>
-          </section>
-
-          <section class="education-item">
-            <div class="education-details">
-              <h3>
-                <a href="https://www.wcpss.net/leesvilleroadhs"
-                  >Leesville Road High School</a
-                >
-              </h3>
-              <h3>Raleigh, NC</h3>
-            </div>
-
-            <div class="education-summary">
-              <p>High School Diploma - June 2023</p>
-              <p>
-                Completed with 3.98 GPA with major coursework in graphic design
-                and graphic arts.
-              </p>
-            </div>
-          </section>
-          <!-- End of School block. -->
-        </section>
-      </main>
+<body class="portfolio">
+  <div class="wrapper">
+    <div class="header-title">
+      <h1 class="font-effect-shadow-multiple">Sarah Manning Portfolio</h1>
+    </div>
+    <!-- Unfortunately, I can't put the navbar inside a header element because only direct descendants of the element with display: grid are considered grid items. -->
+    <!-- Having the header not be part of the css grid is one option, or having the header be a nested grid, but since the goal of this lesson is the css grid, -->
+    <!-- I'm going to go with leveraging the main css grid -->
+    <nav class="header-navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="portfolio-piece portfolio-piece1">
+      <img src="images/portfolio/Manning-FoundPoster.jpg" alt="Found Poster">
+    </div>
+    <div class="portfolio-piece portfolio-piece2">
+      <img src="images/portfolio/Manning-Invitation.PNG" alt="Invitation">
+    </div>
+    <div class="portfolio-piece portfolio-piece3">
+      <img src="images/portfolio/Manning-RSVP.jpg" alt="RSVP">
+    </div>
+    <div class="portfolio-piece portfolio-piece4">
+      <img src="images/portfolio/Manning-SaveTheDate.jpg" alt="Save the Date">
+    </div>
+    <div class="portfolio-piece portfolio-piece5">
+      <img src="images/portfolio/Manning-travel.png" alt="Travel">
+    </div>
+    <div class="portfolio-piece portfolio-piece6">
+      <img src="images/portfolio/Manning-travelpost.jpg" alt="Travel post">
     </div>
 
-    <!-- *****************  CONTACT INFO / SOCIAL MEDIA  ***************** -->
-    <footer>
-      <h2>Let's Keep in Touch!</h2>
-
+    <!-- footer -->
+    <div class="footer-title">
+      <h1 class="font-effect-shadow-multiple">Sarah Manning Portfolio</h1>
+    </div>
+    <!-- same as with header, can't put the socials in a <footer> without breaking the grid since only direct descendants are considered grid items -->
+    <div class="footer-contact">
       <!-- Social media and contact links. Add or remove any networks. -->
       <ul class="socials">
         <!-- <li><a href="mailto:scmanning@my.waketech.edu">scmanning@my.waketech.edu</a></li> -->
@@ -169,7 +59,7 @@
         </li>
         <li>
           <a href="https://github.com/scmanning" target="_blank">
-            <img src="images/github-mark-white.svg" alt="My GitHub page">
+            <img src="images/github-mark.svg" alt="My GitHub page">
           </a>
         </li>
         <li>
@@ -188,6 +78,7 @@
           </a>
         </li>
       </ul>
-    </footer>
-  </body>
+    </div>
+</body>
+
 </html>

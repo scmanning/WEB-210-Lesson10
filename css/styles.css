@@ -1,114 +1,177 @@
 :root {
-    /* Lesson 3 color palette generated using coolors.co and SproutAndGrow-500px.png as the input image */
-    /* NOTE: using the values as css variables since that's the format coolors.co exported them in, and it keeps the colors easier to understand */
-
-    /* --black-olive: #312C1Fff;
-    --lion: #BF955Bff;
-    --dark-moss-green: #3A4D0Bff;
-    --rich-black: #171C25ff;
-    --smoky-black: #16140Cff;
-    --coyote: #75663Fff;
-    --raw-umber: #A0683Aff;
-    --buff: #E4B388ff;
-    --fern-green: #617038ff;
-    --dark-green: #172503ff; */
-
-    /* Lesson 4 - new color palette */
-    /* from https://coolors.co/386641-6a994e-a7c957-f2e8cf-bc4749 */
-    --hunter-green: #386641ff;
-    --asparagus: #6a994eff;
-    --yellow-green: #a7c957ff;
-    --parchment: #f2e8cfff;
-    --bittersweet-shimmer: #bc4749ff;
-    --dark-green: #172503ff;
+    /* color palette exported from https://coolors.co/31393c-2176ff-33a1fd-fdca40-f79824 */
+    --gunmetal: #31393cff;
+    --blue-crayola: #2176ffff;
+    --celestial-blue: #33a1fdff;
+    --sunglow: #fdca40ff;
+    --carrot-orange: #f79824ff;
 }
 
 /* GLOBAL STYLES
 --------------------------------------*/
-
-html, body {
-    height: 100%;
-}
-
 body {
+    background-color: var(--sunglow);
+}
+
+/* create classes matching the grid areas so it's easier to mentally map them */
+.header-title {
+    grid-area: header-title;
+}
+
+.header-navbar {
+    grid-area: header-navbar;
+}
+
+.portfolio-piece1 {
+    grid-area: portfolio-piece1;
+}
+
+.portfolio-piece2 {
+    grid-area: portfolio-piece2;
+}
+
+.portfolio-piece3 {
+    grid-area: portfolio-piece3;
+}
+
+.portfolio-piece4 {
+    grid-area: portfolio-piece4;
+}
+
+.portfolio-piece5 {
+    grid-area: portfolio-piece5;
+}
+
+.portfolio-piece6 {
+    grid-area: portfolio-piece6;
+}
+
+.footer-title {
+    grid-area: footer-title;
+}
+
+.footer-contact {
+    grid-area: footer-contact;
+}
+
+.portfolio-piece {
+    align-self: center;
+    padding: 20px;
+    background-color: var(--celestial-blue);
+    color: var(--gunmetal);
+    border: 1px solid var(--gunmetal);
+}
+
+.portfolio-piece img {
+    /* ensure the portfolio images don't cause the columns to expand beyond the viewport */
+    max-width: 100%;
+}
+
+.wrapper {
+    color: #444;
+    /* ensure we keep some space around the edges of the page */
+    margin: 20px;
+}
+
+/* Navbar
+--------------------------------------*/
+nav ul {
+    list-style-type: none;
+    color: white;
     margin: 0;
-    background-color: var(--yellow-green);
-    font-family: 'Times New Roman', Times, serif;
-}
-/* 
-  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
-*/
-/* html {
-    box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-} */
-
-.content-wrapper {
-    margin: 0 auto;
-    padding: 10px;
-    max-width: 900px;
-}
-/* on smaller screens, remove the vertical padding since it causes too much space between sections, 
-   but keep the horizontal padding since we don't want the content right up to the edge. */
-@media screen and (max-width: 600px) {
-    .content-wrapper {
-        padding: 0px 10px;
-    }
-    
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--gunmetal);
+    /* position: absolute; */
+    top: 0;
+    right: 10px;
+    width: 100%;
 }
 
-/* links */
-a {
-    color: var(--asparagus);
+nav li {
+    float: left;
+    border-right: 1px solid #bbb;
 }
 
-a:hover {
-    color: var(--bittersweet-shimmer);
-    text-decoration: none; /* remove underline when hovered */
-}
-
-.btn {
-    background-color: var(--dark-green);
-    color: var(--yellow-green);
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
 }
 
-/* Resume page styles
---------------------------------------*/
-
-/* .resume {
-    background-image: url(../images/pexels-fauxels-3183152.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
-
-/* .resume body {
-    background-color: rgb(255 255 255 / 0.9);
-} */
-
-/* HEADER
---------------------------------------*/
-
-.resume header::before {
-    /* background: url(../images/SproutAndGrow-500px.png) center no-repeat; */
-    background: url(../images/pexels-fauxels-3183152.jpg) no-repeat;
-    background-size: cover;
-    content: "";
-    display: block;
-    height: 375px;
+nav li a:hover {
+    /* fairly subtle color change on hover */
+    background-color: #111;
+    color: white;
 }
 
-/* make the header image take less vertical space on smaller screens */
-@media screen and (max-width: 600px) {
-    .resume header::before {
-        height: 200px;
+/* default layout will be desktop so we can decrease width to find where the 
+   layout breaks and use those for changing the grid layout */
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "header-title      header-navbar    header-navbar"
+        "portfolio-piece1  portfolio-piece2 portfolio-piece3"
+        "portfolio-piece4  portfolio-piece5 portfolio-piece6"
+        "footer-title      footer-contact   footer-contact";
+}
+
+.header-navbar,
+.footer-contact {
+    /* keep these on the right side of their grid slots in desktop mode */
+    justify-self: end;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "header-title      header-navbar"
+            "portfolio-piece1  portfolio-piece2"
+            "portfolio-piece3  portfolio-piece4"
+            "portfolio-piece5  portfolio-piece6"
+            "footer-title      footer-contact";
     }
-    /* NOTE: don't need to change the sizes of the h1 and h2 since the text still fits at 360px width */
+}
+
+@media screen and (max-width: 750px) {
+    .wrapper {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            "header-title"
+            "header-navbar"
+            "portfolio-piece1"
+            "portfolio-piece2"
+            "portfolio-piece3"
+            "portfolio-piece4"
+            "portfolio-piece5"
+            "portfolio-piece6"
+            "footer-title"
+            "footer-contact";
+    }
+
+    .header-navbar,
+    .header-title,
+    .footer-title,
+    .footer-contact {
+        /* when we collapse to a single column, center the header and footer items */
+        justify-self: center;
+    }
+}
+
+@media screen and (min-width: 600px) {}
+
+/* GLOBAL STYLES
+--------------------------------------*/
+
+html,
+body {
+    height: 100%;
 }
 
 .resume {
@@ -123,16 +186,20 @@ a:hover {
 .resume-section {
     margin-bottom: 50px;
 }
+
 /* reduce margin-bottom so there's not so much empty space on smaller screens */
 @media screen and (max-width: 600px) {
     .resume-section {
         margin-bottom: 10px;
     }
 }
+
 .resume-section h2 {
     border-bottom: 2px dashed var(--asparagus);
 }
+
 @media screen and (max-width: 600px) {
+
     /* the default styles for h2 include too much vertical margin for smaller screens */
     /* just keep the top margin for space between sections but no need for the bottom margin */
     .resume-section h2 {
@@ -140,19 +207,32 @@ a:hover {
     }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--dark-green);
-    /* Poppins font from google web fonts */
-    font-family: Poppins, sans-serif;
+    /* Roboto font from google web fonts */
+    font-family: Roboto, sans-serif;
     /* use the font-effect-3d class from google web fonts instead of text-shadow */
     /* text-shadow: 4px 4px 4px #aaa; */
 }
+
 /* on small screens we want to reduce the margin amount on the header elements from its browser default of 1em */
 @media screen and (max-width: 600px) {
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         margin: 0.25em 0;
     }
 }
+
 .download-link {
     position: fixed;
     top: 5px;
@@ -268,10 +348,12 @@ footer img {
 .socials img {
     width: 32px;
 }
+
 .socials img:hover {
     /* filter: brightness(1.5); */
     opacity: 0.5;
 }
+
 /* below 500px the socials started wrapping to a new line, so we'll change them to a single column
    by switching the flex-direction to column */
 @media screen and (max-width: 500px) {
@@ -280,10 +362,12 @@ footer img {
         /* center align the content of the footer since we're a single column here instead of leaving them left-aligned */
         text-align: center;
     }
+
     /* as a single column there's too much vertical space between the text and icons, so reduce it */
     footer h2 {
         margin: 10px 0px 0px 0px;
     }
+
     .socials {
         margin: 0;
     }
