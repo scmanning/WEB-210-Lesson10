@@ -15,12 +15,8 @@ body {
 }
 
 /* create classes matching the grid areas so it's easier to mentally map them */
-.header-title {
-    grid-area: header-title;
-}
-
-.header-navbar {
-    grid-area: header-navbar;
+.header {
+    grid-area: header;
 }
 
 .portfolio-piece1 {
@@ -114,16 +110,20 @@ nav li a:hover {
     grid-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-        "header-title      header-navbar    header-navbar"
+        "header            header           header"
         "portfolio-piece1  portfolio-piece2 portfolio-piece3"
         "portfolio-piece4  portfolio-piece5 portfolio-piece6"
         "footer-title      footer-contact   footer-contact";
 }
 
-.header-navbar,
 .footer-contact {
-    /* keep these on the right side of their grid slots in desktop mode */
+    /* keep footer contact info on the right side of its grid slot in desktop mode */
     justify-self: end;
+}
+
+.header {
+    /* center the header in its grid slot */
+    justify-self: center;
 }
 
 
@@ -131,7 +131,7 @@ nav li a:hover {
     .wrapper {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
-            "header-title      header-navbar"
+            "header            header"
             "portfolio-piece1  portfolio-piece2"
             "portfolio-piece3  portfolio-piece4"
             "portfolio-piece5  portfolio-piece6"
@@ -143,8 +143,7 @@ nav li a:hover {
     .wrapper {
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-            "header-title"
-            "header-navbar"
+            "header"
             "portfolio-piece1"
             "portfolio-piece2"
             "portfolio-piece3"
@@ -155,8 +154,7 @@ nav li a:hover {
             "footer-contact";
     }
 
-    .header-navbar,
-    .header-title,
+    .header,
     .footer-title,
     .footer-contact {
         /* when we collapse to a single column, center the header and footer items */

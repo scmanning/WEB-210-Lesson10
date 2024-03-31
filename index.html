@@ -10,76 +10,70 @@
 </head>
 
 <body class="portfolio">
-  <div class="wrapper">
-    <div class="header-title">
-      <h1 class="font-effect-shadow-multiple">Sarah Manning Portfolio</h1>
-    </div>
-    <!-- Unfortunately, I can't put the navbar inside a header element because only direct descendants of the element with display: grid are considered grid items. -->
-    <!-- Having the header not be part of the css grid is one option, or having the header be a nested grid, but since the goal of this lesson is the css grid, -->
-    <!-- I'm going to go with leveraging the main css grid -->
-    <nav class="header-navbar">
+  <!-- moved nav bar outside of css grid -->
+  <!-- this way we can wrap it with <header> and use the same html structure as the lesson 11 example -->
+  <header class="menu-wrap">
+    <input type="checkbox" id="checkbox">
+    <nav>
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
+    <!-- <label for="checkbox" class="menu-icon">☰</label>          -->
+    <label for="checkbox" class="menu-icon">&#x2630;</label>  
+    <!-- hamburger menu character, 'trigram for heaven' -->      
+    <!-- see https://codepoints.net/U+2630 -->  
+  </header>
+  <div class="wrapper">
+    <div class="header">
+      <h1 class="font-effect-shadow-multiple">Sarah Manning Portfolio</h1>
+    </div>
     <div class="portfolio-piece portfolio-piece1">
-      <img src="images/portfolio/Manning-FoundPoster-1000w.jpg"
-        sizes="(max-width: 800px) 600px,
+      <img src="images/portfolio/Manning-FoundPoster-1000w.jpg" sizes="(max-width: 800px) 600px,
               (max-width: 1000px) 800px,
-              1000px"
-        srcset="images/portfolio/Manning-FoundPoster-1000w.jpg 1000w,
+              1000px" srcset="images/portfolio/Manning-FoundPoster-1000w.jpg 1000w,
                 images/portfolio/Manning-FoundPoster-800w.jpg 800w,
                 images/portfolio/Manning-FoundPoster-600w.jpg 600w"
         alt="Band festival poster for Greensky bluegrass made with found objects">
     </div>
     <div class="portfolio-piece portfolio-piece2">
-      <img src="images/portfolio/Manning-Invitation-1000w.png"
-        sizes="(max-width: 800px) 600px,
+      <img src="images/portfolio/Manning-Invitation-1000w.png" sizes="(max-width: 800px) 600px,
               (max-width: 1000px) 800px,
-              1000px"
-        srcset="images/portfolio/Manning-Invitation-1000w.png 1000w,
+              1000px" srcset="images/portfolio/Manning-Invitation-1000w.png 1000w,
                 images/portfolio/Manning-Invitation-800w.png 800w,
                 images/portfolio/Manning-Invitation-600w.png 600w"
         alt="Background image created for wedding invitation project">
     </div>
     <div class="portfolio-piece portfolio-piece3">
-      <img src="images/portfolio/Manning-RSVP-1000w.png"
-        sizes="(max-width: 800px) 600px,
+      <img src="images/portfolio/Manning-RSVP-1000w.png" sizes="(max-width: 800px) 600px,
               (max-width: 1000px) 800px,
-              1000px"
-        srcset="images/portfolio/Manning-RSVP-1000w.png 1000w,
+              1000px" srcset="images/portfolio/Manning-RSVP-1000w.png 1000w,
                 images/portfolio/Manning-RSVP-800w.png 800w,
                 images/portfolio/Manning-RSVP-600w.png 600w"
         alt="Background image created for RSVP in wedding project">
     </div>
     <div class="portfolio-piece portfolio-piece4">
-      <img src="images/portfolio/Manning-SaveTheDate-1000w.png"
-        sizes="(max-width: 800px) 600px,
+      <img src="images/portfolio/Manning-SaveTheDate-1000w.png" sizes="(max-width: 800px) 600px,
               (max-width: 1000px) 800px,
-              1000px"
-        srcset="images/portfolio/Manning-SaveTheDate-1000w.png 1000w,
+              1000px" srcset="images/portfolio/Manning-SaveTheDate-1000w.png 1000w,
                 images/portfolio/Manning-SaveTheDate-800w.png 800w,
                 images/portfolio/Manning-SaveTheDate-600w.png 600w"
         alt="Background image created for RSVP in wedding project">
     </div>
     <div class="portfolio-piece portfolio-piece5">
-      <img src="images/portfolio/Manning-travel-1000w.jpg"
-        sizes="(max-width: 800px) 600px,
+      <img src="images/portfolio/Manning-travel-1000w.jpg" sizes="(max-width: 800px) 600px,
               (max-width: 1000px) 800px,
-              1000px"
-        srcset="images/portfolio/Manning-travel-1000w.png 1000w,
+              1000px" srcset="images/portfolio/Manning-travel-1000w.png 1000w,
                 images/portfolio/Manning-travel-800w.png 800w,
                 images/portfolio/Manning-travel-600w.png 600w"
         alt="Poster illustration created for North Carolina Dog Festival">
     </div>
     <div class="portfolio-piece portfolio-piece6">
-      <img src="images/portfolio/Manning-travelpost-1000w.jpg"
-        sizes="(max-width: 800px) 600px,
+      <img src="images/portfolio/Manning-travelpost-1000w.jpg" sizes="(max-width: 800px) 600px,
               (max-width: 1000px) 800px,
-              1000px"
-        srcset="images/portfolio/Manning-travelpost-1000w.jpg 1000w,
+              1000px" srcset="images/portfolio/Manning-travelpost-1000w.jpg 1000w,
                 images/portfolio/Manning-travelpost-800w.jpg 800w,
                 images/portfolio/Manning-travelpost-600w.jpg 600w"
         alt="Instagram post illustration created for North Carolina Dog Festival">
