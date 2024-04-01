@@ -1,3 +1,4 @@
+
 :root {
     /* color palette exported from https://coolors.co/31393c-2176ff-33a1fd-fdca40-f79824 */
     --gunmetal: #31393cff;
@@ -72,38 +73,82 @@ body {
 
 /* Navbar
 --------------------------------------*/
-nav ul {
-    list-style-type: none;
+/* based on Lesson 11 example at https://wcet.waketech.edu/ndagata/WEB210/Lesson11/index.html */
+/* base design is mobile first with a media query for switching to desktop */
+
+* {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+}
+.menu-wrap {
+    height: 3em;
     background-color: var(--gunmetal);
-    /* position: absolute; */
-    top: 0;
-    right: 10px;
+    padding: 10px 15px;
+    /*position: fixed;*/
     width: 100%;
 }
-
-nav li {
-    float: left;
-    border-right: 1px solid #bbb;
+.menu-icon {
+    font-size: 2em;
+    color: var(--sunglow);
 }
-
-nav li a {
+/* use the same hover and focus color as the menu items */
+.menu-icon:hover, .menu-icon:focus {
+    color: var(--celestial-blue);
+}
+nav {
+    position: absolute;
+    background-color: var(--gunmetal);
+    top: 3.5em;
+    left: 0;
+    width: 100%;
+}
+nav ul {
+    list-style-type: none;
+    max-height: 0em;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+nav ul li a {
     display: block;
-    color: var(--carrot-orange);
-    text-align: center;
-    padding: 14px 16px;
+    padding: .75em 1.75em;
+    color: var(--sunglow);
     text-decoration: none;
 }
-
-nav li a:hover {
-    /* color changes on hover */
-    background-color: black;
-    color: white;
+nav ul li a:hover, nav ul li a:focus {
+    color: var(--celestial-blue);
+}
+#checkbox {
+    display: none;
+}
+#checkbox:checked ~ nav ul {
+    max-height: 11em;
 }
 
-/* default layout will be desktop so we can decrease width to find where the 
+/* desktop/large screen settings */
+
+@media (min-width: 750px) { /* use the same break point as when we switch to a single column layout */
+    .menu-icon {
+        display: none;
+    }
+    nav {
+        position: relative;
+        top: -1em;
+    }
+    nav ul {
+        max-height: 1em;               
+        padding: 15px 0;
+    }
+    nav ul li {
+        display: inline-block;
+        padding-left: 1em;
+    }
+}
+
+
+/* CSS Grid
+--------------------------------------*/
+
+/* default layout will be desktop so we can decrease width to find where the
    layout breaks and use those for changing the grid layout */
 .wrapper {
     display: grid;
